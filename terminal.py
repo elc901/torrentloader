@@ -22,12 +22,10 @@ def run(event):
 
     if line == "clear":
         output.delete(1.0, END)
-    elif line == "hello":
-        output.insert(END, f"{command.hello()}\n")
-    elif line == "download":
-        output.insert(END, f"{command.download()}\n")
-    else:
-        output.insert(END, f"unknown command: {line}\n")
+    elif line == "clg": # выбор языка
+        output.insert(END, f"{command.language()}\n")
+    #else:
+    #   output.insert(END, f"unknown command: {line}\n") # пример ошибки
 
     prompt()
     output.see(END)
