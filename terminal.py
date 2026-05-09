@@ -44,11 +44,14 @@ def run(event):
         output.mark_set("input_start", "end-1c")
         output.mark_gravity("input_start", LEFT)
         pending_handler = command.language
-    elif line == "help":
+    elif line == "help": # просто вывод команд 
         command.help(write)
         reset_prompt()
     elif line == "exit": # выход
         exit()
+    elif line == "about":
+        command.about_programm(write)
+        reset_prompt()
     else:
         write(f"unknown command: {line}\n")
         prompt()
