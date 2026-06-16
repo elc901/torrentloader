@@ -17,7 +17,7 @@ def open_settings_wdw(parent):
     functions.open_window.title("Settings")
     functions.open_window.geometry("300x450+100+200")
     functions.open_window.protocol("WM_DELETE_WINDOW", functions.on_close)
-
+# переключатель  для переключения темы
     functions.theme_switch_var = ctk.StringVar(value="on" if current_theme == "dark" else "off")
     theme_switch = ctk.CTkSwitch(
         functions.open_window,
@@ -28,6 +28,10 @@ def open_settings_wdw(parent):
         command=functions.change_theme
     )
     theme_switch.place(x=50, y=20)
-
+# конец
+# кнопка для изменения размера
+    change_size1 = ctk.CTkButton(function.)
     close_btn = ctk.CTkButton(functions.open_window, text="Close", command=functions.on_close)
     close_btn.place(x=75, y=420)
+
+size_100 =  # список размеров для интерфейса

@@ -26,3 +26,21 @@ def change_theme():
     with open("settings.json", "w") as f:
         json.dump(settings, f, indent=4)
 
+def change_size(size):
+    if size == 100:
+        with open("settings.json", "r") as f:
+            settings = json.load(f)
+        size_of_interface = settings["visual"]["size"]
+        if size_of_interface == 100:
+            None
+        else:
+            
+            with open("settings.json", "w") as f:
+                json.dump(settings, f, indent=4)
+    elif size == 125:
+
+    elif size == 150:
+        
+    elif size == 200:
+
+        
