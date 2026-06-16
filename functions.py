@@ -1,11 +1,8 @@
 import customtkinter as ctk
 import json
-#with open("settings.json", "r") as f:
-    #settings = json.load(f)
 
-#with open("settings.json", "w") as f:
-    #json.dump()
 open_window = None  
+theme_switch_var = None
 
 def on_close():
     global open_window
@@ -13,23 +10,19 @@ def on_close():
         open_window.destroy()
         open_window = None
 
-def open_settings_wdw(parent):
-    global open_window
+def change_theme():
+    global theme_switch_var
     
+    with open("settings.json", "r") as f:
+        settings = json.load(f)
     
-    if open_window is not None and open_window.winfo_exists():
-        open_window.lift()
-        open_window.focus()
-        return
+    if theme_switch_var.get() == "on":
+        settings["visual"]["theme"] = "dark"
+        ctk.set_appearance_mode("dark")
+    else:
+        settings["visual"]["theme"] = "light"
+        ctk.set_appearance_mode("light")
     
-    
-    open_window = ctk.CTkToplevel(parent)  
-    open_window.title("Settings")
-    open_window.geometry("300x450+100+200")
-    
-    
-    open_window.protocol("WM_DELETE_WINDOW", on_close)
-    
-    
-    close_btn = ctk.CTkButton(open_window, text="Save and close", command=on_close)
-    close_btn.place(x=75, y=420)  
+    with open("settings.json", "w") as f:
+        json.dump(settings, f, indent=4)
+
